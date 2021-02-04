@@ -1,0 +1,237 @@
+{
+  "resourceType": "Communication",
+  "contained": [{
+      "resourceType": "Location",
+      "id": "location",
+      "name": "UK"
+    }, {
+      "resourceType": "PractitionerRole",
+      "id": "practRoleReferrer",
+      "practitioner": {
+        "reference": "practitionerReferrer"
+      },
+      "code": {
+        "coding": [{
+            "display": "Médical",
+            "code": "Medical"
+          }
+        ],
+        "text": "Medical"
+      },
+      "identifier": [{
+          "value": "kghf990"
+        }
+      ]
+    }, {
+      "resourceType": "Practitioner",
+      "id": "practitionerReferrer",
+      "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-VendorName",
+          "valueString": "Partner Limited"
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-ProgramNumber",
+          "valueString": "1234567890"
+        }
+      ],
+      "name": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "MR.",
+                    "display": "Mr"
+                  }
+                ],
+                "text": "Mr."
+              }
+            }
+          ],
+          "given": ["Barney"],
+          "family": "Rubble"
+        }
+      ],
+      "telecom": [{
+          "system": "email",
+          "value": "champion@astrazeneca.com"
+        }
+      ]
+    }, {
+      "resourceType": "PractitionerRole",
+      "id": "practRoleSubmitter",
+      "identifier": [{
+          "value": "kghf990"
+        }
+      ],
+      "practitioner": {
+        "reference": "practitionerSubmitter"
+      },
+      "code": {
+        "coding": [{
+            "display": "médecin",
+            "code": "112247003"
+          }
+        ],
+        "text": "Medical doctor"
+      },
+      "specialty": [{
+          "coding": [{
+              "display": "médecine diabétique",
+              "code": "408475000"
+            }
+          ],
+          "text": "Diabetic medicine"
+        }
+      ],
+      "Organization": {
+        "reference": "orgSubmitter"
+      }
+    }, {
+      "resourceType": "Practitioner",
+      "id": "practitionerSubmitter",
+      "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-Relationship",
+          "valueString": "Father"
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-callbackMedicalAffairs",
+          "valueBoolean": "false"
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-dateDueCustomer",
+          "valueDate": "2020-09-27"
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-Callback",
+          "valueBoolean": "false"
+        }
+      ],
+      "name": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "DR.",
+                    "display": "Dr"
+                  }
+                ],
+                "text": "Dr."
+              }
+            }
+          ],
+          "given": ["Barney"],
+          "family": "Rubble"
+        }
+      ],
+      "telecom": [{
+          "system": "email",
+          "value": "champion@astrazeneca.com"
+        }, {
+          "system": "phone",
+          "value": "0201231234"
+        }, {
+          "system": "other",
+          "value": "123"
+        }
+      ],
+      "address": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "CHE",
+                    "display": "Le Cheshire"
+                  }
+                ],
+                "text": "Cheshire"
+              }
+            }
+          ],
+          "line": ["Building 4", "1 High Street"],
+          "city": "Macclesfield",
+          "postalCode": "SW14 0EG",
+          "country": "UK"
+        }
+      ]
+    }, {
+      "resourceType": "Organization",
+      "id": "orgSubmitter",
+      "name": "Macclesfield Hospital"
+    }, {
+      "resourceType": "Medication",
+      "id": "medication01",
+      "code": {
+        "coding": [{
+            "display": "Imfinzi",
+            "code": "172_002000029076GB"
+          }
+        ],
+        "text": "Imfinzi"
+      }
+    }
+  ],
+  "id": "MIR1",
+  "extension": [{
+      "url": "http://hl7.org/fhir/StructureDefinition/Communication-Location",
+      "valueReference": {
+        "reference": "location"
+      }
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/Communication-ReporterType",
+      "valueString": "1"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/Communication-EmployeeVendor",
+      "valueString": "AZ Employee"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/Communication-AZEmployeeReporter",
+      "valueString": "0"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/Communication-CongressAttended",
+      "valueCodeableConcept": {
+        "coding": [{
+            "code": "AACR - American Association for Cancer Research",
+            "display": "AACR - American Association for Cancer Research"
+          }
+        ],
+        "text": "AACR - American Association for Cancer Research"
+      }
+    }
+  ],
+  "language": "en-GB",
+  "text": {
+    "status": "generated",
+    "div": "<div>Please send q4wk flat dosing in lung cancer and q4wk flat dosing in bladder cancer standard response letter (when available)</div>"
+  },
+  "status": "completed",
+  "recipient": [{
+      "reference": "practRoleReferrer"
+    }
+  ],
+  "medium": [{
+      "coding": [{
+          "display": "Emaile",
+          "code": "EMAILWRIT"
+        }
+      ],
+      "text": "Email"
+    }
+  ],
+  "about": [{
+      "reference": "medication01"
+    }
+  ],
+  "sender": {
+    "reference": "practRoleSubmitter"
+  },
+  "payload": [{
+      "content": {
+        "contentAttachment": {
+          "contentType": "PDF",
+          "data": "BASE64-ENCODED-PDF-DATA-GOES-IN-HERE",
+          "title": "TestDocument",
+          "size": "60kb"
+        }
+      }
+    }
+  ],
+  "note": [{
+      "text": "4/2sent lung letter, waiting for bladder letter and will resend second package"
+    }
+  ]
+}

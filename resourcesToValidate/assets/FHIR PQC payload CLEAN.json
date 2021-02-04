@@ -1,0 +1,410 @@
+{
+  "resourceType": "Adverse Event",
+  "contained": [{
+      "resourceType": "Location",
+      "id": "location",
+      "name": "UK"
+    }, {
+      "resourceType": "RelatedPerson",
+      "id": "relPerson",
+      "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/RelatedPerson-ConsentToContactReporter",
+          "valueBoolean": false
+        }
+      ],
+      "name": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "Mr",
+                    "display": "Monsieur"
+                  }
+                ],
+                "text": "Mr."
+              }
+            }
+          ],
+          "family": "Flintstone",
+          "given": ["Fred"]
+        }
+      ],
+      "relationship": [{
+          "text": "Father"
+        }
+      ],
+      "telecom": [{
+          "system": "phone",
+          "value": "0201231234"
+        }, {
+          "system": "email",
+          "value": "fred.Flintstone@astrazeneca.com"
+        }
+      ],
+      "address": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "01",
+                    "display": "Middlesex"
+                  }
+                ],
+                "text": "Middlesex"
+              }
+            }
+          ],
+          "line": ["APARTMENT 3", "21 Edgware Road"],
+          "city": "London",
+          "postalCode": "SW14 0EG",
+          "country": "UK"
+        }
+      ]
+    }, {
+      "resourceType": "Patient",
+      "id": "patient",
+      "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/Patient-ConsentToContactReporter",
+          "valueBoolean": false
+        }
+      ],
+      "name": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "Mr",
+                    "display": "Monsieur"
+                  }
+                ],
+                "text": "Mr."
+              }
+            }
+          ],
+          "family": "Flintstone",
+          "given": ["Fred"]
+        }
+      ],
+      "telecom": [{
+          "system": "phone",
+          "value": "0201231234"
+        }, {
+          "system": "email",
+          "value": "fred.Flintstone@astrazeneca.com"
+        }
+      ],
+      "address": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "01",
+                    "display": "Middlesex"
+                  }
+                ],
+                "text": "Middlesex"
+              }
+            }
+          ],
+          "line": ["APARTMENT 3", "21 Edgware Road"],
+          "city": "London",
+          "postalCode": "SW14 0EG",
+          "country": "UK"
+        }
+      ],
+      "identifier": [{
+          "value": ""
+        }
+      ]
+    }, {
+      "resourceType": "PractitionerRole",
+      "id": "practRoleAssist",
+      "code": {
+        "coding": [{
+            "display": "Medical office worker locLang",
+            "code": "224608005"
+          }
+        ],
+        "text": "Medical office worker EN"
+      },
+      "practitioner": {
+        "reference": "practitionerAssist"
+      }
+    }, {
+      "resourceType": "Practitioner",
+      "id": "practitionerAssist",
+      "name": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "Miss",
+                    "display": "Madame"
+                  }
+                ],
+                "text": "Miss"
+              }
+            }
+          ],
+          "given": ["Fred"],
+          "family": "Flintstone"
+        }
+      ]
+    }, {
+      "resourceType": "PractitionerRole",
+      "id": "practRoleHCP",
+      "code": {
+        "coding": [{
+            "display": "Doctor local language",
+            "code": "112247003"
+          }
+        ],
+        "text": "Doctor EN"
+      },
+      "specialty": {
+        "coding": [{
+            "display": "Emergency Medicine",
+            "code": "773568002"
+          }
+        ],
+        "text": "Emergency Medicine English"
+      },
+      "practitioner": {
+        "reference": "practitionerHCP"
+      },
+      "Organization": {
+        "reference": "orgHCP"
+      }
+    }, {
+      "resourceType": "Practitioner",
+      "id": "practitionerHCP",
+      "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-ConsentToContactPractitioner",
+          "valueBoolean": false
+        }
+      ],
+      "identifier": [{
+          "value": "RELTIO-ID-123456"
+        }
+      ],
+      "name": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "Dr",
+                    "display": "Docteur"
+                  }
+                ],
+                "text": "Dr."
+              }
+            }
+          ],
+          "given": ["Barney"],
+          "family": "Rubble"
+        }
+      ],
+      "telecom": [{
+          "system": "phone",
+          "value": "0201231234"
+        }, {
+          "system": "email",
+          "value": "manjunath.muyida@astrazeneca.com"
+        }, {
+          "system": "other",
+          "value": "ext. 456"
+        }
+      ],
+      "address": [{
+          "extension": [{
+              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "CHE",
+                    "display": "Cheshire"
+                  }
+                ],
+                "text": "Cheshire"
+              }
+            }
+          ],
+          "line": ["Building 4", "1 High Street"],
+          "city": "Macclesfield",
+          "postalCode": "SW14 0EG",
+          "country": "UK"
+        }
+      ]
+    }, {
+      "resourceType": "Organization",
+      "id": "orgHCP",
+      "name": "Macclesfield Hospital",
+      "alias": "Respiratory Unit"
+    }, {
+      "resourceType": "PractitionerRole",
+      "id": "practRoleAZEmployee",
+      "code": {
+        "text": "AZ Employee"
+      },
+      "identifier": [{
+          "value": "kcvl999"
+        }
+      ],
+      "practitioner": {
+        "reference": "practitionerAZEmployee"
+      },
+      "Organization": {
+        "reference": "orgAZVendor"
+      }
+    }, {
+      "resourceType": "Practitioner",
+      "id": "practitionerAZEmployee",
+      "name": [{
+          "given": ["Fred"],
+          "family": "Flintstone"
+        }
+      ],
+      "telecom": [{
+          "system": "email",
+          "value": "az.employee@astrazeneca.com"
+        }
+      ]
+    }, {
+      "resourceType": "Organization",
+      "id": "orgAZVendor",
+      "name": "Vendor name",
+      "contact": [{
+          "name": {
+            "given": ["AZ"],
+            "family": "Vendor"
+          },
+          "telecom": [{
+              "system": "email",
+              "value": "az.vendor@astrazeneca.com"
+            }
+          ]
+        }
+      ]
+    }, {
+      "resourceType": "medicationAdministration",
+      "id": "medicationAdministration",
+      "medicationReference": {
+        "reference": "medication"
+      }
+    }, {
+      "resourceType": "Medication",
+      "id": "medication",
+      "extension": [{
+          "url": "http://hl7.org/fhir/StructureDefinition/Medication-marketProductType",
+          "valueString": "Finished Sales Pack/Device"
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Medication-strengthUnit",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "mg",
+                "display": "mg"
+              }
+            ],
+            "text": "mg EN"
+          }
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Medication-packType",
+          "valueCodeableConcept": {
+            "coding": [{
+                "code": "Blister",
+                "display": "Blister"
+              }
+            ],
+            "text": "Blister EN"
+          }
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Medication-sampleAvailableForReturn",
+          "valueBoolean": true
+        }, {
+          "url": "http://hl7.org/fhir/StructureDefinition/Medication-quantityAvailableForReturn",
+          "valueInteger": 50
+        }
+      ],
+      "ingredient": [{
+          "strength": {
+            "numerator": {
+              "Value": 50
+            }
+          }
+        }
+      ],
+      "amount": [{
+          "numerator": {
+            "Value": 50
+          }
+        }
+      ],
+      "code": {
+        "text": "Bydureon"
+      },
+      "text": "Additional information on the PQC",
+      "batch": {
+        "lotNumber": "lotNumberhere",
+        "expirationDate": "2020-12-31"
+      }
+    },
+    {
+      "resourceType": "DocumentReference",
+      "id": "pdf1",
+      "status": "current",
+      "description": "PDFOriginalForm.pdf",
+      "content": [{
+          "attachment": {
+            "data": "BASE64-ENCODED-PDF-DATA-GOES-IN-HERE"
+          }
+        }
+      ]
+    }
+  ],
+  "id": "PQC1",
+  "extension": [{
+      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-ReporterType",
+      "valueString": "0"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-ProgramNumber",
+      "valueString": "prog12345"
+    }, {
+      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-AZEmployeeReporter",
+      "valueString": "0"
+    }
+  ],
+  "text": {
+    "div": "PQC long text description goes here",
+    "status": "generated"
+  },
+  "actuality": "actual",
+  "location": {
+    "reference": "location"
+  },
+  "language": "en-GB",
+  "date": "2020-09-10",
+  "recorder": {
+    "reference": "relPerson"
+  },
+  "subject": {
+    "reference": "patient"
+  },
+  "suspectEntity": [{
+      "instance": {
+        "reference": "medicationAdministration"
+      }
+    }
+  ],
+  "contributor": [{
+      "reference": "practRoleAssist"
+    }, {
+      "reference": "practRoleHCP"
+    }, {
+      "reference": "practRoleAZEmployee"
+    }
+  ],
+  "detected": "2020-07-21T14:50:23Z",
+  "referenceDocument": [{
+      "reference": "pdf1"
+    }
+  ]
+}
