@@ -1,5 +1,8 @@
 {
-  "resourceType": "Adverse Event",
+  "resourceType": "AdverseEvent",
+  "meta": {
+    "profile": ["https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent"]
+  },
   "contained": [{
       "resourceType": "Location",
       "id": "location",
@@ -7,17 +10,21 @@
     }, {
       "resourceType": "RelatedPerson",
       "id": "relPerson",
+      "patient": {
+        "reference": "#patient"
+      },
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/RelatedPerson-ConsentToContactReporter",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/RelatedPerson-consentToContactReporter",
           "valueBoolean": false
         }
       ],
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "Mr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
                     "display": "Monsieur"
                   }
                 ],
@@ -43,10 +50,11 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "01",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
                     "display": "Middlesex"
                   }
                 ],
@@ -64,36 +72,39 @@
       "resourceType": "Patient",
       "id": "patient",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Person-ConsentToContactReporter",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-consentToContactReporter",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Patient-PatientAge",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-patientAge",
           "valueInteger": 35
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Patient-AgeGroup",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-ageGroup",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "ADULT",
+                "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/ageGroup",
                 "display": "Adulte"
               }
             ],
             "text": "Adult"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Patient-Gender",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-gender",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "MALE",
+                "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/gender",
                 "display": "Masculin"
               }
             ],
             "text": "Male"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Patient-Ethnicity",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-ethnicity",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "D",
+                "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/ethnicity",
                 "display": "Asiane"
               }
             ],
@@ -103,10 +114,11 @@
       ],
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "Mr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
                     "display": "Monsieur"
                   }
                 ],
@@ -128,10 +140,11 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "01",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
                     "display": "Middlesex"
                   }
                 ],
@@ -154,66 +167,74 @@
     }, {
       "resourceType": "PractitionerRole",
       "id": "practRoleAssist",
-      "code": {
-        "coding": [{
-            "display": "Medical office worker locLang",
-            "code": "224608005"
-          }
-        ],
-        "text": "Medical office worker EN"
-      },
+      "code": [{
+          "coding": [{
+              "display": "Administrative healthcare staff",
+              "system": "http://snomed.info/sct",
+              "code": "224608005"
+            }
+          ],
+          "text": "Medical office worker EN"
+        }
+      ],
       "practitioner": {
-        "reference": "practitionerAssist"
+        "reference": "#practitionerAssist"
       }
     }, {
       "resourceType": "Practitioner",
       "id": "practitionerAssist",
-      "name": {
-        "extension": [{
-            "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
-            "valueCodeableConcept": {
-              "coding": [{
-                  "code": "Miss",
-                  "display": "Madame"
-                }
-              ],
-              "text": "Miss"
+      "name": [{
+          "extension": [{
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "Miss",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
+                    "display": "Madame"
+                  }
+                ],
+                "text": "Miss"
+              }
             }
-          }
-        ],
-        "given": ["Fred"],
-        "family": "Flintstone"
+          ],
+          "given": ["Fred"],
+          "family": "Flintstone"
+        }
       }
-    }, {
+    ], {
       "resourceType": "PractitionerRole",
       "id": "practRoleHCP",
-      "code": {
-        "coding": [{
-            "display": "Doctor local language",
-            "code": "112247003"
-          }
-        ],
-        "text": "Doctor EN"
-      },
-      "specialty": {
-        "coding": [{
-            "display": "Emergency Medicine",
-            "code": "773568002"
-          }
-        ],
-        "text": "Emergency Medicine English"
-      },
+      "code": [{
+          "coding": [{
+              "display": "Medical doctor",
+              "system": "http://snomed.info/sct",
+              "code": "112247003"
+            }
+          ],
+          "text": "Doctor EN"
+        }
+      ],
+      "specialty": [{
+          "coding": [{
+              "display": "Emergency Medicine",
+              "system": "http://snomed.info/sct",
+              "code": "773568002"
+            }
+          ],
+          "text": "Emergency Medicine English"
+        }
+      ],
       "practitioner": {
-        "reference": "practitionerHCP"
+        "reference": "#practitionerHCP"
       },
-      "Organization": {
-        "reference": "orgHCP"
+      "organization": {
+        "reference": "#orgHCP"
       }
     }, {
       "resourceType": "Practitioner",
       "id": "practitionerHCP",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-ConsentToContactPractitioner",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-consentToContactPractitioner",
           "valueBoolean": false
         }
       ],
@@ -221,22 +242,24 @@
           "value": "RELTIO-ID-123456"
         }
       ],
-      "name": {
-        "extension": [{
-            "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
-            "valueCodeableConcept": {
-              "coding": [{
-                  "code": "Dr",
-                  "display": "Docteur"
-                }
-              ],
-              "text": "Dr."
+      "name": [{
+          "extension": [{
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
+              "valueCodeableConcept": {
+                "coding": [{
+                    "code": "Dr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
+                    "display": "Docteur"
+                  }
+                ],
+                "text": "Dr."
+              }
             }
-          }
-        ],
-        "given": ["Barney"],
-        "family": "Rubble"
-      },
+          ],
+          "given": ["Barney"],
+          "family": "Rubble"
+        }
+      ],
       "telecom": [{
           "system": "phone",
           "value": "0201231234"
@@ -250,10 +273,11 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "CHE",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
                     "display": "Cheshire"
                   }
                 ],
@@ -271,30 +295,32 @@
       "resourceType": "Organization",
       "id": "orgHCP",
       "name": "Macclesfield Hospital",
-      "alias": "Respiratory Unit"
+      "alias": ["Respiratory Unit"]
     }, {
       "resourceType": "PractitionerRole",
       "id": "practRoleAZEmployee",
-      "code": {
-        "text": "AZ Employee"
-      },
+      "code": [{
+          "text": "AZ Employee"
+        }
+      ],
       "identifier": [{
           "value": "kcvl999"
         }
       ],
       "practitioner": {
-        "reference": "practitionerAZEmployee"
+        "reference": "#practitionerAZEmployee"
       },
-      "Organization": {
-        "reference": "orgAZVendor"
+      "organization": {
+        "reference": "#orgAZVendor"
       }
     }, {
       "resourceType": "Practitioner",
       "id": "practitionerAZEmployee",
-      "name": {
-        "given": ["Fred"],
-        "family": "Flintstone"
-      },
+      "name": [{
+          "given": ["Fred"],
+          "family": "Flintstone"
+        }
+      ],
       "telecom": [{
           "system": "email",
           "value": "manjunath.muyida@astrazeneca.com"
@@ -322,23 +348,27 @@
       "status": "final",
       "code": {
         "coding": [{
-            "code": "10164-0"
+            "code": "10164-2",
+            "system": "http://loinc.org",
+            "display": "History of Present illness Narrative"
+
           }
         ]
-      },
-      "text": "My medical history is long and complex and goes here"
+      }
     }, {
       "resourceType": "Observation",
       "id": "obser-height",
       "status": "final",
       "code": {
         "coding": [{
-            "code": "8302-2"
+            "code": "8302-2",
+            "system": "http://loinc.org",
+            "display": "Body height"
           }
         ]
       },
       "valueQuantity": {
-        "value": "170",
+        "value": 170,
         "unit": "cm"
       }
     }, {
@@ -347,12 +377,14 @@
       "status": "final",
       "code": {
         "coding": [{
-            "code": "29463-7"
+            "code": "29463-7",
+            "system": "http://loinc.org",
+            "display": "Body weight"
           }
         ]
       },
       "valueQuantity": {
-        "value": "75",
+        "value": 75,
         "unit": "kg"
       }
     }, {
@@ -361,16 +393,18 @@
       "status": "final",
       "code": {
         "coding": [{
-            "code": "11449-6"
+            "code": "11449-6",
+            "system": "http://loinc.org"
           }
         ]
       },
-      "valueBoolean": true,
       "component": [{
-          "code": "11449-6",
-          "valuePeriod": {
-            "start": "2020-01-01",
-            "end": "2020-09-01"
+          "code": {
+            "coding": [{
+                "code": "11449-6",
+                "system": "http://loinc.org"
+              }
+            ]
           },
           "valueString": "Had 9 kids already with no issues"
         }
@@ -381,7 +415,10 @@
       "status": "final",
       "code": {
         "coding": [{
-            "code": "85699-7"
+            "code": "85699-7",
+            "system": "http://loinc.org",
+            "display": "Autopsy was performed"
+
           }
         ]
       },
@@ -397,38 +434,39 @@
       "resourceType": "Condition",
       "id": "resultingCond01",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-Duration",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-duration",
           "valueString": "1 day"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-Outcome",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-outcome",
           "valueCodeableConcept": {
             "coding": [{
-                "code": "FHIR code",
+                "code": "recovered",
+                "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/condition-outcome",
                 "display": "Recovered"
               }
             ],
             "text": "Recovered"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionDeath",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionDeath",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionLifeThreat",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionLifeThreat",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionBirthDefect",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionBirthDefect",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionHospitalization",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionHospitalization",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionDisability",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionDisability",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionImportantMedicalEvent",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionImportantMedicalEvent",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionRequiredIntervention",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionRequiredIntervention",
           "valueBoolean": false
         }
       ],
@@ -436,12 +474,11 @@
           "value": "cond01"
         }
       ],
-      "text": "I felt sick after taking the medication",
       "subject": {
-        "reference": "patient"
+        "reference": "#patient"
       },
       "encounter": {
-        "reference": "encounter01"
+        "reference": "#encounter01"
       },
       "onsetPeriod": {
         "start": "2020-06-30",
@@ -449,7 +486,7 @@
       },
       "stage": [{
           "assessment": [{
-              "reference": "obser-autopsy01"
+              "reference": "#obser-autopsy01"
             }
           ]
         }
@@ -457,8 +494,11 @@
     }, {
       "resourceType": "Encounter",
       "id": "encounter01",
-      "text": "Hospitalization",
-      "class": "IMP",
+      "class": {
+        "code": "IMP",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "display": "inpatient encounter"
+      },
       "status": "arrived",
       "period": {
         "start": "2020-04-30",
@@ -468,38 +508,39 @@
       "resourceType": "Condition",
       "id": "resultingCond02",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-Duration",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-duration",
           "valueString": "1 day"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-Outcome",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-outcome",
           "valueCodeableConcept": {
             "coding": [{
-                "code": "FHIR code",
+                "code": "recovered",
+                "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/condition-outcome",
                 "display": "Recovered"
               }
             ],
             "text": "Recovered"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionDeath",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionDeath",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionLifeThreat",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionLifeThreat",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionBirthDefect",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionBirthDefect",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionHospitalization",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionHospitalization",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionDisability",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionDisability",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionImportantMedicalEvent",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionImportantMedicalEvent",
           "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Condition-ResultingConditionRequiredIntervention",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionRequiredIntervention",
           "valueBoolean": false
         }
       ],
@@ -507,12 +548,11 @@
           "value": "cond02"
         }
       ],
-      "text": "Headache",
       "subject": {
-        "reference": "patient"
+        "reference": "#patient"
       },
       "encounter": {
-        "reference": "encounter02"
+        "reference": "#encounter02"
       },
       "onsetPeriod": {
         "start": "2020-06-30",
@@ -521,18 +561,25 @@
     }, {
       "resourceType": "Encounter",
       "id": "encounter02",
-      "text": "Hospitalization",
-      "class": "IMP",
+      "class": {
+        "code": "IMP",
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "display": "inpatient encounter"
+      },
       "status": "arrived",
       "period": {
         "start": "2020-04-30",
         "end": "2020-05-01"
       }
     }, {
-      "resourceType": "medicationAdministration",
+      "resourceType": "MedicationAdministration",
       "id": "medicationAdministration01",
+      "status": "completed",
+      "subject": {
+        "reference": "#patient"
+      },
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-ActionTaken",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-actionTaken",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "3",
@@ -542,7 +589,7 @@
             "text": "Increased"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-OperatorDevice",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-operatorDevice",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "PATIENT",
@@ -552,20 +599,19 @@
             "text": "Patient"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-OperatorDeviceOther",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-operatorDeviceOther",
           "valueString": "Nurse"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-ProductType",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-productType",
           "valueString": "D"
         }
       ],
       "medicationReference": {
-        "reference": "medication01"
+        "reference": "#medication01"
       },
-      "text": "Why is the product being taken",
       "dosage": {
         "extension": [{
-            "url": "http://hl7.org/fhir/StructureDefinition/Dosage-Unit",
+            "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-unit",
             "valueCodeableConcept": {
               "coding": [{
                   "code": "g",
@@ -575,7 +621,7 @@
               "text": "Grams"
             }
           }, {
-            "url": "http://hl7.org/fhir/StructureDefinition/Dosage-Frequency",
+            "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-frequency",
             "valueCodeableConcept": {
               "coding": [{
                   "code": "DAILY",
@@ -603,7 +649,7 @@
         "end": "2020-12-31"
       },
       "device": [{
-          "reference": "device01"
+          "reference": "#device01"
         }
       ]
     }, {
@@ -624,10 +670,14 @@
         }
       ]
     }, {
-      "resourceType": "medicationAdministration",
+      "resourceType": "MedicationAdministration",
       "id": "medicationAdministration02",
+      "status": "completed",
+      "subject": {
+        "reference": "#patient"
+      },
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-ActionTaken",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-actionTaken",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "3",
@@ -637,7 +687,7 @@
             "text": "Increased"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-OperatorDevice",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-operatorDevice",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "PATIENT",
@@ -647,20 +697,19 @@
             "text": "Patient"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-OperatorDeviceOther",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-operatorDeviceOther",
           "valueString": "Nurse"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/MedicationAdministration-ProductType",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-productType",
           "valueString": "D"
         }
       ],
       "medicationReference": {
-        "reference": "medication02"
+        "reference": "#medication02"
       },
-      "text": "Why is the product being taken",
       "dosage": {
         "extension": [{
-            "url": "http://hl7.org/fhir/StructureDefinition/Dosage-Unit",
+            "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-unit",
             "valueCodeableConcept": {
               "coding": [{
                   "code": "g",
@@ -670,7 +719,7 @@
               "text": "Grams"
             }
           }, {
-            "url": "http://hl7.org/fhir/StructureDefinition/Dosage-Frequency",
+            "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-frequency",
             "valueCodeableConcept": {
               "coding": [{
                   "code": "DAILY",
@@ -687,8 +736,7 @@
               "code": "46713006",
               "display": "How is the product being taken local language"
             }
-          ],
-          "text": "How taken english version"
+          ]
         },
         "dose": {
           "value": 1
@@ -699,7 +747,7 @@
         "end": "2020-12-31"
       },
       "device": [{
-          "reference": "device02"
+          "reference": "#device02"
         }
       ]
     }, {
@@ -726,109 +774,110 @@
       "description": "PDFOriginalForm.pdf",
       "content": [{
           "attachment": {
-            "data": "BASE64-ENCODED-PDF-DATA-GOES-IN-HERE"
+            "data": "QkFTRTY0LUVOQ09ERUQtUERGLURBVEEtR09FUy1JTi1IRVJF",
+            "contentType": "application/pdf"
           }
         }
       ]
     }
-  ],
-  "id": "AE1",
-  "extension": [{
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-ReporterType",
-      "valueString": "0"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-ProgramNumber",
-      "valueString": "prog12345"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-LateReason",
-      "valueString": "Had a day off so was late reporting this"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-LocalReferenceNumber",
-      "valueString": "locrefnum1"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-SourceType",
-      "valueString": "sourcetype"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-AZEmployeeReporter",
-      "valueString": "0"
-    }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-SurveyStatus",
-      "valueString": "survey status"
-    }
-  ],
-  "text": {
-    "div": "Text message",
-    "status": "generated"
-  },
-  "actuality": "actual",
-  "location": {
-    "reference": "location"
-  },
-  "language": "en-GB",
-  "recordedDate": "2020-07-21T14:50:23Z",
-  "recorder": {
-    "reference": "relPerson"
-  },
-  "subject": {
-    "reference": "patient"
-  },
-  "contributor": [{
-      "reference": "practRoleAssist"
-    }, {
-      "reference": "practRoleHCP"
-    }, {
-      "reference": "practRoleAZEmployee"
-    }
-  ],
-  "detected": "2020-07-21T14:50:23Z",
-  "resultingCondition": [{
-      "reference": "resultingCond01"
-    }, {
-      "reference": "resultingCond02"
-    }
-  ],
-  "suspectEntity": [{
-      "instance": {
-        "reference": "medicationAdministration01"
-      },
-      "causality": [{
-          "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Causality-causalDrug",
-              "valueString": "Y"
-            }, {
-              "url": "http://hl7.org/fhir/StructureDefinition/Causality-positiveDechallenge",
-              "valueString": "Y"
-            }, {
-              "url": "http://hl7.org/fhir/StructureDefinition/Causality-Rechallenge",
-              "valueString": "Y"
-            }, {
-              "url": "http://hl7.org/fhir/StructureDefinition/Causality-positiveRechallenge",
-              "valueString": "Y"
-            }
-          ],
-          "assessment": {
-            "text": "cond01"
-          }
-        }
-      ]
-    }, {
-      "instance": {
-        "reference": "medicationAdministration02"
+    ],
+    "id": "AE1",
+    "extension": [{
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-reporterType",
+        "valueString": "0"
+      }, {
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-programNumber",
+        "valueString": "prog12345"
+      }, {
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-lateReason",
+        "valueString": "Had a day off so was late reporting this"
+      }, {
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-localReferenceNumber",
+        "valueString": "locrefnum1"
+      }, {
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-sourceType",
+        "valueCode": "spont"
+      }, {
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-AZEmployeeReporter",
+        "valueString": "0"
+      }, {
+        "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-surveyStatus",
+        "valueCode": "req-det"
       }
-    }
-  ],
-  "subjectMedicalHistory": [{
-      "reference": "obser-height"
-    }, {
-      "reference": "obser-weight"
-    }, {
-      "reference": "obser-preg"
-    }, {
-      "reference": "obser-patienthistory"
-    }
-  ],
-  "referenceDocument": [{
-      "reference": "pdf1"
-    }
-  ]
-}
+    ],
+    "text": {
+      "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en-GB\" xml:lang=\"en-GB\">Text message</div>",
+      "status": "generated"
+    },
+    "actuality": "actual",
+    "location": {
+      "reference": "#location"
+    },
+    "language": "en-GB",
+    "recordedDate": "2020-07-21T14:50:23Z",
+    "recorder": {
+      "reference": "#relPerson"
+    },
+    "subject": {
+      "reference": "#patient"
+    },
+    "contributor": [{
+        "reference": "#practRoleAssist"
+      }, {
+        "reference": "#practRoleHCP"
+      }, {
+        "reference": "#practRoleAZEmployee"
+      }
+    ],
+    "detected": "2020-07-21T14:50:23Z",
+    "resultingCondition": [{
+        "reference": "#resultingCond01"
+      }, {
+        "reference": "#resultingCond02"
+      }
+    ],
+    "suspectEntity": [{
+        "instance": {
+          "reference": "#medicationAdministration01"
+        },
+        "causality": [{
+            "extension": [{
+                "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-causalDrug",
+                "valueString": "Y"
+              }, {
+                "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-positiveDechallenge",
+                "valueString": "Y"
+              }, {
+                "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-rechallenge",
+                "valueString": "Y"
+              }, {
+                "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-positiveRechallenge",
+                "valueString": "Y"
+              }
+            ],
+            "assessment": {
+              "text": "cond01"
+            }
+          }
+        ]
+      }, {
+        "instance": {
+          "reference": "#medicationAdministration02"
+        }
+      }
+    ],
+    "subjectMedicalHistory": [{
+        "reference": "#obser-height"
+      }, {
+        "reference": "#obser-weight"
+      }, {
+        "reference": "#obser-preg"
+      }, {
+        "reference": "#obser-patienthistory"
+      }
+    ],
+    "referenceDocument": [{
+        "reference": "#pdf1"
+      }
+    ]
+  }

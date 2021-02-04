@@ -1,14 +1,20 @@
 {
   "resourceType": "QuestionnaireResponse",
+  "meta": {
+    "profile": ["https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse"]
+  },
   "contained": [{
       "resourceType": "Consent",
       "id": "consent01",
       "status": "active",
-      "patient": "#patient"
+      "patient": {
+        "reference": "#patient"
+      },
       "scope": {
         "coding": [{
             "code": "research",
-            "system": "http://terminology.hl7.org/CodeSystem/consentscope"
+            "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+            "display": "Research"
           }
         ],
         "text": "PPPConsent1"
@@ -39,11 +45,14 @@
       "resourceType": "Consent",
       "id": "consent02",
       "status": "active",
-      "patient": "#patient"
+      "patient": {
+        "reference": "#patient"
+      },
       "scope": {
         "coding": [{
             "code": "research",
-            "system": "http://terminology.hl7.org/CodeSystem/consentscope"
+            "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+            "display": "Research"
           }
         ],
         "text": "PPPConsent2"
@@ -100,25 +109,29 @@
   },
   "authored": "2020-12-10T15:41:08Z",
   "extension": [{
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-programme",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-programme",
       "valueString": "ProgramCode"
     }, {
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-source",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-source",
       "valueString": "PPP"
     }, {
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-reporterType",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-reporterType",
       "valueString": "CarerAdult/CarerChild/Patient"
     }, {
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-language",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-language",
       "valueString": "en"
     }, {
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-consent",
-      "valueReference": "#consent01"
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-consent",
+      "valueReference": {
+        "reference": "#consent01"
+      }
     }, {
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-consent",
-      "valueReference": "#consent02"
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-consent",
+      "valueReference": {
+        "reference": "#consent02"
+      }
     }, {
-      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/astrazeneca.fhir.ig.ae-QuestionnaireResponse-attachment",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-attachment",
       "valueAttachment": {
         "contentType": "application/pdf",
         "title": "PDF document name",

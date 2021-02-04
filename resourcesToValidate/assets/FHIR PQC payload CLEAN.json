@@ -1,5 +1,8 @@
 {
-  "resourceType": "Adverse Event",
+  "resourceType": "AdverseEvent",
+  "meta": {
+    "profile": ["https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent"]
+  },
   "contained": [{
       "resourceType": "Location",
       "id": "location",
@@ -7,17 +10,21 @@
     }, {
       "resourceType": "RelatedPerson",
       "id": "relPerson",
+      "patient": {
+        "reference": "patient"
+      },
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/RelatedPerson-ConsentToContactReporter",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/RelatedPerson-consentToContactReporter",
           "valueBoolean": false
         }
       ],
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "Mr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
                     "display": "Monsieur"
                   }
                 ],
@@ -43,10 +50,11 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "01",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
                     "display": "Middlesex"
                   }
                 ],
@@ -64,16 +72,17 @@
       "resourceType": "Patient",
       "id": "patient",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Patient-ConsentToContactReporter",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-consentToContactReporter",
           "valueBoolean": false
         }
       ],
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "Mr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
                     "display": "Monsieur"
                   }
                 ],
@@ -95,10 +104,11 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "01",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
                     "display": "Middlesex"
                   }
                 ],
@@ -113,32 +123,35 @@
         }
       ],
       "identifier": [{
-          "value": ""
+          "value": "patientID123231"
         }
       ]
     }, {
       "resourceType": "PractitionerRole",
       "id": "practRoleAssist",
-      "code": {
-        "coding": [{
-            "display": "Medical office worker locLang",
-            "code": "224608005"
-          }
-        ],
-        "text": "Medical office worker EN"
-      },
+      "code": [{
+          "coding": [{
+              "display": "Administrative healthcare staff",
+              "code": "224608005",
+              "system": "http://snomed.info/sct"
+            }
+          ],
+          "text": "Medical office worker EN"
+        }
+      ],
       "practitioner": {
-        "reference": "practitionerAssist"
+        "reference": "#practitionerAssist"
       }
     }, {
       "resourceType": "Practitioner",
       "id": "practitionerAssist",
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "Miss",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
                     "display": "Madame"
                   }
                 ],
@@ -153,33 +166,36 @@
     }, {
       "resourceType": "PractitionerRole",
       "id": "practRoleHCP",
-      "code": {
-        "coding": [{
-            "display": "Doctor local language",
-            "code": "112247003"
-          }
-        ],
-        "text": "Doctor EN"
-      },
-      "specialty": {
-        "coding": [{
-            "display": "Emergency Medicine",
-            "code": "773568002"
-          }
-        ],
-        "text": "Emergency Medicine English"
-      },
+      "code": [{
+          "coding": [{
+              "display": "Medical doctor",
+              "code": "112247003"
+            }
+          ],
+          "text": "Doctor EN"
+        }
+      ],
+      "specialty": [{
+          "coding": [{
+              "display": "Emergency Medicine",
+              "code": "773568002",
+              "system": "http://snomed.info/sct"
+            }
+          ],
+          "text": "Emergency Medicine English"
+        }
+      ],
       "practitioner": {
-        "reference": "practitionerHCP"
+        "reference": "#practitionerHCP"
       },
-      "Organization": {
-        "reference": "orgHCP"
+      "organization": {
+        "reference": "#orgHCP"
       }
     }, {
       "resourceType": "Practitioner",
       "id": "practitionerHCP",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-ConsentToContactPractitioner",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-consentToContactPractitioner",
           "valueBoolean": false
         }
       ],
@@ -189,11 +205,13 @@
       ],
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "Dr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
                     "display": "Docteur"
+
                   }
                 ],
                 "text": "Dr."
@@ -217,10 +235,11 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "CHE",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
                     "display": "Cheshire"
                   }
                 ],
@@ -238,22 +257,23 @@
       "resourceType": "Organization",
       "id": "orgHCP",
       "name": "Macclesfield Hospital",
-      "alias": "Respiratory Unit"
+      "alias": ["Respiratory Unit"]
     }, {
       "resourceType": "PractitionerRole",
       "id": "practRoleAZEmployee",
-      "code": {
-        "text": "AZ Employee"
-      },
+      "code": [{
+          "text": "AZ Employee"
+        }
+      ],
       "identifier": [{
           "value": "kcvl999"
         }
       ],
       "practitioner": {
-        "reference": "practitionerAZEmployee"
+        "reference": "#practitionerAZEmployee"
       },
-      "Organization": {
-        "reference": "orgAZVendor"
+      "organization": {
+        "reference": "#orgAZVendor"
       }
     }, {
       "resourceType": "Practitioner",
@@ -285,8 +305,13 @@
         }
       ]
     }, {
-      "resourceType": "medicationAdministration",
+      "resourceType": "MedicationAdministration",
       "id": "medicationAdministration",
+      "effectiveDateTime": "2021-01-01T00:00:00.000Z",
+      "status": "completed",
+      "subject": {
+        "reference": "#patient"
+      },
       "medicationReference": {
         "reference": "medication"
       }
@@ -294,20 +319,22 @@
       "resourceType": "Medication",
       "id": "medication",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Medication-marketProductType",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-marketProductType",
           "valueString": "Finished Sales Pack/Device"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Medication-strengthUnit",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-strengthUnit",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "mg",
-                "display": "mg"
+                "display": "mg",
+                "system": "http://unitsofmeasure.org"
+
               }
             ],
             "text": "mg EN"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Medication-packType",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-packType",
           "valueCodeableConcept": {
             "coding": [{
                 "code": "Blister",
@@ -317,44 +344,55 @@
             "text": "Blister EN"
           }
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Medication-sampleAvailableForReturn",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-sampleAvailableForReturn",
           "valueBoolean": true
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Medication-quantityAvailableForReturn",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-quantityAvailableForReturn",
           "valueInteger": 50
         }
       ],
       "ingredient": [{
           "strength": {
             "numerator": {
-              "Value": 50
+              "value": 50
+            },
+            "denominator": {
+              "value": 1
             }
+          },
+          "itemReference": {
+            "reference": "#medication"
           }
         }
       ],
-      "amount": [{
-          "numerator": {
-            "Value": 50
-          }
+      "amount": {
+        "numerator": {
+          "value": 50
+        },
+        "denominator": {
+          "value": 1
         }
-      ],
+      },
       "code": {
         "text": "Bydureon"
       },
-      "text": "Additional information on the PQC",
+      "text": {
+        "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\">Additional information on the PQC</div>",
+        "status": "generated"
+      },
       "batch": {
         "lotNumber": "lotNumberhere",
         "expirationDate": "2020-12-31"
       }
-    },
-    {
+    }, {
       "resourceType": "DocumentReference",
       "id": "pdf1",
       "status": "current",
       "description": "PDFOriginalForm.pdf",
       "content": [{
           "attachment": {
-            "data": "BASE64-ENCODED-PDF-DATA-GOES-IN-HERE"
+            "data": "QkFTRTY0LUVOQ09ERUQtUERGLURBVEEtR09FUy1JTi1IRVJF",
+            "contentType": "application/pdf"
           }
         }
       ]
@@ -362,49 +400,49 @@
   ],
   "id": "PQC1",
   "extension": [{
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-ReporterType",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-reporterType",
       "valueString": "0"
     }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-ProgramNumber",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-programNumber",
       "valueString": "prog12345"
     }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/AdverseEvent-AZEmployeeReporter",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-AZEmployeeReporter",
       "valueString": "0"
     }
   ],
   "text": {
-    "div": "PQC long text description goes here",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en-GB\" xml:lang=\"en-GB\">PQC long text description goes here</div>",
     "status": "generated"
   },
   "actuality": "actual",
   "location": {
-    "reference": "location"
+    "reference": "#location"
   },
   "language": "en-GB",
   "date": "2020-09-10",
   "recorder": {
-    "reference": "relPerson"
+    "reference": "#relPerson"
   },
   "subject": {
     "reference": "patient"
   },
   "suspectEntity": [{
       "instance": {
-        "reference": "medicationAdministration"
+        "reference": "#medicationAdministration"
       }
     }
   ],
   "contributor": [{
-      "reference": "practRoleAssist"
+      "reference": "#practRoleAssist"
     }, {
-      "reference": "practRoleHCP"
+      "reference": "#practRoleHCP"
     }, {
-      "reference": "practRoleAZEmployee"
+      "reference": "#practRoleAZEmployee"
     }
   ],
   "detected": "2020-07-21T14:50:23Z",
   "referenceDocument": [{
-      "reference": "pdf1"
+      "reference": "#pdf1"
     }
   ]
 }

@@ -1,5 +1,8 @@
 {
   "resourceType": "Communication",
+  "meta": {
+    "profile": ["https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication"]
+  },
   "contained": [{
       "resourceType": "Location",
       "id": "location",
@@ -8,16 +11,18 @@
       "resourceType": "PractitionerRole",
       "id": "practRoleReferrer",
       "practitioner": {
-        "reference": "practitionerReferrer"
+        "reference": "#practitionerReferrer"
       },
-      "code": {
-        "coding": [{
-            "display": "Médical",
-            "code": "Medical"
-          }
-        ],
-        "text": "Medical"
-      },
+      "code": [{
+          "coding": [{
+              "display": "Medical doctor",
+              "system": "http://snomed.info/sct",
+              "code": "112247003"
+            }
+          ],
+          "text": "Medical doctor"
+        }
+      ],
       "identifier": [{
           "value": "kghf990"
         }
@@ -26,20 +31,22 @@
       "resourceType": "Practitioner",
       "id": "practitionerReferrer",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-VendorName",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-vendorName",
           "valueString": "Partner Limited"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-ProgramNumber",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-programNumber",
           "valueString": "1234567890"
         }
       ],
+
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
-                    "code": "MR.",
-                    "display": "Mr"
+                    "code": "Mr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
+                    "display": "MR."
                   }
                 ],
                 "text": "Mr."
@@ -54,6 +61,7 @@
           "system": "email",
           "value": "champion@astrazeneca.com"
         }
+
       ]
     }, {
       "resourceType": "PractitionerRole",
@@ -63,52 +71,56 @@
         }
       ],
       "practitioner": {
-        "reference": "practitionerSubmitter"
+        "reference": "#practitionerSubmitter"
       },
-      "code": {
-        "coding": [{
-            "display": "médecin",
-            "code": "112247003"
-          }
-        ],
-        "text": "Medical doctor"
-      },
+      "code": [{
+          "coding": [{
+              "display": "Medical doctor",
+              "system": "http://snomed.info/sct",
+              "code": "112247003"
+            }
+          ],
+          "text": "Medical doctor"
+        }
+      ],
       "specialty": [{
           "coding": [{
-              "display": "médecine diabétique",
+              "display": "Diabetic medicine",
+              "system": "http://snomed.info/sct",
               "code": "408475000"
             }
           ],
           "text": "Diabetic medicine"
         }
       ],
-      "Organization": {
-        "reference": "orgSubmitter"
+      "organization": {
+        "reference": "#orgSubmitter"
       }
     }, {
       "resourceType": "Practitioner",
       "id": "practitionerSubmitter",
       "extension": [{
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-Relationship",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-relationship",
           "valueString": "Father"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-callbackMedicalAffairs",
-          "valueBoolean": "false"
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-callbackMedicalAffairs",
+          "valueBoolean": false
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-dateDueCustomer",
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-dateDueCustomer",
           "valueDate": "2020-09-27"
         }, {
-          "url": "http://hl7.org/fhir/StructureDefinition/Practitioner-Callback",
-          "valueBoolean": "false"
+          "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Practitioner-callback",
+          "valueBoolean": false
         }
       ],
       "name": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/HumanName-Salutation",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName-salutation",
               "valueCodeableConcept": {
                 "coding": [{
-                    "code": "DR.",
-                    "display": "Dr"
+                    "code": "Dr",
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
+                    "display": "DR."
                   }
                 ],
                 "text": "Dr."
@@ -132,14 +144,15 @@
       ],
       "address": [{
           "extension": [{
-              "url": "http://hl7.org/fhir/StructureDefinition/Address-Region",
+              "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region",
               "valueCodeableConcept": {
                 "coding": [{
                     "code": "CHE",
-                    "display": "Le Cheshire"
+                    "system": "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
+                    "display": "Cheshire"
                   }
                 ],
-                "text": "Cheshire"
+                "text": "Le Cheshire"
               }
             }
           ],
@@ -168,21 +181,21 @@
   ],
   "id": "MIR1",
   "extension": [{
-      "url": "http://hl7.org/fhir/StructureDefinition/Communication-Location",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-location",
       "valueReference": {
-        "reference": "location"
+        "reference": "#location"
       }
     }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/Communication-ReporterType",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-reporterType",
       "valueString": "1"
     }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/Communication-EmployeeVendor",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-employeeVendor",
       "valueString": "AZ Employee"
     }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/Communication-AZEmployeeReporter",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-AZEmployeeReporter",
       "valueString": "0"
     }, {
-      "url": "http://hl7.org/fhir/StructureDefinition/Communication-CongressAttended",
+      "url": "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-congressAttended",
       "valueCodeableConcept": {
         "coding": [{
             "code": "AACR - American Association for Cancer Research",
@@ -196,37 +209,37 @@
   "language": "en-GB",
   "text": {
     "status": "generated",
-    "div": "<div>Please send q4wk flat dosing in lung cancer and q4wk flat dosing in bladder cancer standard response letter (when available)</div>"
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"en-GB\" xml:lang=\"en-GB\">Please send q4wk flat dosing in lung cancer and q4wk flat dosing in bladder cancer standard response letter (when available)</div>"
   },
+
   "status": "completed",
   "recipient": [{
-      "reference": "practRoleReferrer"
+      "reference": "#practRoleReferrer"
     }
   ],
   "medium": [{
       "coding": [{
-          "display": "Emaile",
+          "display": "email",
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationMode",
           "code": "EMAILWRIT"
         }
       ],
-      "text": "Email"
+      "text": "Emaile"
     }
   ],
   "about": [{
-      "reference": "medication01"
+      "reference": "#medication01"
     }
   ],
   "sender": {
-    "reference": "practRoleSubmitter"
+    "reference": "#practRoleSubmitter"
   },
   "payload": [{
-      "content": {
-        "contentAttachment": {
-          "contentType": "PDF",
-          "data": "BASE64-ENCODED-PDF-DATA-GOES-IN-HERE",
-          "title": "TestDocument",
-          "size": "60kb"
-        }
+      "contentAttachment": {
+        "contentType": "application/pdf",
+        "data": "QkFTRTY0LUVOQ09ERUQtUERGLURBVEEtR09FUy1JTi1IRVJF",
+        "title": "TestDocument",
+        "size": 36
       }
     }
   ],
