@@ -1,0 +1,13 @@
+description: Defines Address Region
+content: complete
+title: Address Region
+name: AddressRegion
+version: 0.1.0
+status: active
+date: 2021-01-19T13:20:31+00:00
+publisher: AstraZeneca
+concepts:
+  - code: 01
+    display: Middlesex
+  - code: CHE
+    display: Cheshire

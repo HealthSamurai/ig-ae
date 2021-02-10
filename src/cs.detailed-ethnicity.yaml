@@ -1,0 +1,17 @@
+description: Defines Detailed Ethnicity
+content: complete
+title: Detailed Ethnicity
+name: DetailedEthnicity
+version: 0.1.0
+status: active
+date: 2021-01-19T13:20:31+00:00
+publisher: AstraZeneca
+concepts:
+- code: white
+  display: White
+- code: african
+  display: African
+- code: caribbean
+  display: Caribbean
+- code: N/A
+  display: Not prepared to say

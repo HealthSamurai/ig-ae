@@ -1,0 +1,12 @@
+description: Defines Patient Age Group
+content: complete
+title: Patient Age Group
+name: AgeGroup
+version: 0.1.0
+status: active
+date: 2021-01-19T13:20:31+00:00
+publisher: AstraZeneca
+concepts:
+- code: ADULT
+  display: Adulte
+
