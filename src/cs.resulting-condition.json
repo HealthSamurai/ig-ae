@@ -1,0 +1,45 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "resulting-condition",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This code system https://healthsamurai.github.io/ig-ae/CodeSystem/resulting-condition defines the following codes</p></div>"
+  },
+  "url": "https://healthsamurai.github.io/ig-ae/CodeSystem/resulting-condition",
+  "version": "0.1.0",
+  "name": "ResultingCondition",
+  "title": "Resulting Condition",
+  "status": "active",
+  "date": "2021-01-19T13:20:31+00:00",
+  "publisher": "AstraZeneca",
+  "contact": [{
+      "telecom": [{
+          "system": "url",
+          "value": "https://astrazeneca.com"
+        }
+      ]
+    }
+  ],
+  "description": "Defines possible condition outcomes",
+  "content": "complete",
+  "concept": [{
+      "code": "death",
+      "display": "Death"
+    }, {
+      "code": "life-threat",
+      "display": "Life Threat"
+    }, {
+      "code": "birth-defect",
+      "display": "Birth Defect"
+    }, {
+      "code": "hospitalization",
+      "display": "Hospitalization"
+    }, {
+      "code": "disability",
+      "display": "Disability"
+    }, {
+      "code": "IMA",
+      "display": "Important Medical Event"
+    }
+  ]
+}

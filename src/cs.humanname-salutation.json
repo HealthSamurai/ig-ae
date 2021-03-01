@@ -1,0 +1,36 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "humanname-salutation",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This code system https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation defines the following codes</p></div>"
+  },
+  "url": "https://healthsamurai.github.io/ig-ae/CodeSystem/humanname-salutation",
+  "version": "0.1.0",
+  "name": "HumannameSalutation",
+  "title": "Humanname Salutation",
+  "status": "active",
+  "date": "2021-01-19T13:20:31+00:00",
+  "publisher": "AstraZeneca",
+  "contact": [{
+      "telecom": [{
+          "system": "url",
+          "value": "https://astrazeneca.com"
+        }
+      ]
+    }
+  ],
+  "description": "Defines humanname salutation",
+  "content": "complete",
+  "concept": [{
+      "code": "Mr",
+      "display": "Monsieur"
+    },{
+      "code": "Miss",
+      "display": "Madame"
+    },{
+      "code": "Dr",
+      "display": "Docteur"
+    }
+  ]
+}

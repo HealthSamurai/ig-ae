@@ -1,0 +1,39 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "intelligent-source",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This code system https://healthsamurai.github.io/ig-ae/CodeSystem/intelligent-source defines the following codes</p></div>"
+  },
+  "url": "https://healthsamurai.github.io/ig-ae/CodeSystem/intelligent-source",
+  "version": "0.1.0",
+  "name": "IntelligentSource",
+  "title": "Intelligent Source",
+  "status": "active",
+  "date": "2021-01-19T13:20:31+00:00",
+  "publisher": "AstraZeneca",
+  "contact": [{
+      "telecom": [{
+          "system": "url",
+          "value": "https://astrazeneca.com"
+        }
+      ]
+    }
+  ],
+  "description": "Defines possible condition outcomes",
+  "content": "complete",
+  "concept": [{
+      "code": "spont",
+      "display": "Spontaneous"
+    }, {
+      "code": "usage",
+      "display": "Usage Record Survey"
+    }, {
+      "code": "spec",
+      "display": "Specific Use Survey"
+    }, {
+      "code": "other",
+      "display": "Others"
+    }
+  ]
+}

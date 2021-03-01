@@ -1,0 +1,30 @@
+{
+  "resourceType": "CodeSystem",
+  "id": "gender",
+  "text": {
+    "status": "generated",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>This code system https://healthsamurai.github.io/ig-ae/CodeSystem/gender defines the following codes</p></div>"
+  },
+  "url": "https://healthsamurai.github.io/ig-ae/CodeSystem/gender",
+  "version": "0.1.0",
+  "name": "gender",
+  "title": "Gender",
+  "status": "active",
+  "date": "2021-01-19T13:20:31+00:00",
+  "publisher": "AstraZeneca",
+  "contact": [{
+      "telecom": [{
+          "system": "url",
+          "value": "https://astrazeneca.com"
+        }
+      ]
+    }
+  ],
+  "description": "Defines genders",
+  "content": "complete",
+  "concept": [{
+      "code": "MALE",
+      "display": "Masculin"
+    }
+  ]
+}
