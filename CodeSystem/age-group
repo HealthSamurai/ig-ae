@@ -1,0 +1,17 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "age-group",
+  "url" : "https://healthsamurai.github.io/ig-ae/CodeSystem/age-group",
+  "version" : "0.1.0",
+  "name" : "AgeGroup",
+  "title" : "Patient Age Group",
+  "status" : "active",
+  "date" : "2021-01-19T13:20:31Z",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines Patient Age Group",
+  "content" : "complete",
+  "concept" : [ {
+    "code" : "ADULT",
+    "display" : "Adulte"
+  } ]
+}

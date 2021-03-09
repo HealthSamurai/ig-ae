@@ -1,0 +1,173 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "AdverseEvent",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent",
+  "name" : "AZAdverseEventProfile",
+  "title" : "AZ AdverseEvent Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-30",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the AdverseEvent resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "AdverseEvent",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/AdverseEvent",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "AdverseEvent.extension",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "AdverseEvent.extension:AZEmployeeReporter",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-AZEmployeeReporter" ]
+      } ],
+      "sliceName" : "AZEmployeeReporter",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.extension:reporterType",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-reporterType" ]
+      } ],
+      "sliceName" : "reporterType",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.extension:programNumber",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-programNumber" ]
+      } ],
+      "sliceName" : "programNumber",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.extension:localReferenceNumber",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-localReferenceNumber" ]
+      } ],
+      "sliceName" : "localReferenceNumber",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.extension:sourceType",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-sourceType" ]
+      } ],
+      "binding" : {
+        "valueSet" : "https://healthsamurai.github.io/ig-ae/ValueSet/intelligent-source",
+        "strength" : "extensible",
+        "description" : "The value should be from the valueset intelligent-source"
+      },
+      "sliceName" : "sourceType",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.extension:surveyStatus",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-surveyStatus" ]
+      } ],
+      "binding" : {
+        "valueSet" : "https://healthsamurai.github.io/ig-ae/ValueSet/survey-status",
+        "strength" : "extensible",
+        "description" : "The value should be from the valueset survey-status"
+      },
+      "sliceName" : "surveyStatus",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.extension:lateReason",
+      "path" : "AdverseEvent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-lateReason" ]
+      } ],
+      "sliceName" : "lateReason",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.suspectEntity",
+      "path" : "AdverseEvent.suspectEntity",
+      "mustSupport" : true
+    }, {
+      "id" : "AdverseEvent.suspectEntity.causality",
+      "path" : "AdverseEvent.suspectEntity.causality",
+      "mustSupport" : true
+    }, {
+      "id" : "AdverseEvent.suspectEntity.causality.extension",
+      "path" : "AdverseEvent.suspectEntity.causality.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "AdverseEvent.suspectEntity.causality.extension:positiveDechallenge",
+      "path" : "AdverseEvent.suspectEntity.causality.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-positiveDechallenge" ]
+      } ],
+      "sliceName" : "positiveDechallenge",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.suspectEntity.causality.extension:positiveRechallenge",
+      "path" : "AdverseEvent.suspectEntity.causality.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-positiveRechallenge" ]
+      } ],
+      "sliceName" : "positiveRechallenge",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.suspectEntity.causality.extension:rechallenge",
+      "path" : "AdverseEvent.suspectEntity.causality.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-rechallenge" ]
+      } ],
+      "sliceName" : "rechallenge",
+      "isModifier" : false
+    }, {
+      "id" : "AdverseEvent.suspectEntity.causality.extension:causalDrug",
+      "path" : "AdverseEvent.suspectEntity.causality.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/AdverseEvent-causalDrug" ]
+      } ],
+      "sliceName" : "causalDrug",
+      "isModifier" : false
+    } ]
+  }
+}

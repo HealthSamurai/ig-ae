@@ -1,0 +1,104 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Patient",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient",
+  "name" : "AZPatientProfile",
+  "title" : "AZ Patient Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-01-19",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Patient resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Patient",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Patient",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Patient.extension",
+      "path" : "Patient.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Patient.extension:ethnicity",
+      "path" : "Patient.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-ethnicity" ]
+      } ],
+      "binding" : {
+        "valueSet" : "https://healthsamurai.github.io/ig-ae/ValueSet/detailed-ethnicity",
+        "strength" : "extensible",
+        "description" : "The value should be from the valueset detailed-ethnicity"
+      },
+      "sliceName" : "ethnicity",
+      "isModifier" : false
+    }, {
+      "id" : "Patient.extension:consentToContactReporter",
+      "path" : "Patient.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-consentToContactReporter" ]
+      } ],
+      "sliceName" : "consentToContactReporter",
+      "isModifier" : false
+    }, {
+      "id" : "Patient.extension:gender",
+      "path" : "Patient.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-gender" ]
+      } ],
+      "sliceName" : "gender",
+      "isModifier" : false
+    }, {
+      "id" : "Patient.extension:ageGroup",
+      "path" : "Patient.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-ageGroup" ]
+      } ],
+      "sliceName" : "ageGroup",
+      "isModifier" : false
+    }, {
+      "id" : "Patient.extension:patientAge",
+      "path" : "Patient.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Patient-patientAge" ]
+      } ],
+      "sliceName" : "patientAge",
+      "isModifier" : false
+    }, {
+      "id" : "Patient.name",
+      "path" : "Patient.name",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "HumanName",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName" ]
+      } ]
+    }, {
+      "id" : "Patient.address",
+      "path" : "Patient.address",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Address",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address" ]
+      } ]
+    } ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Address",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address",
+  "name" : "AZAddressProfile",
+  "title" : "AZ Address Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-10-06",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Address data type",
+  "fhirVersion" : "4.0.1",
+  "kind" : "complex-type",
+  "abstract" : false,
+  "type" : "Address",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Address",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Address.extension",
+      "path" : "Address.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Address.extension:region",
+      "path" : "Address.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address-region" ]
+      } ],
+      "sliceName" : "region",
+      "isModifier" : false
+    } ]
+  }
+}

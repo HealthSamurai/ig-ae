@@ -1,0 +1,158 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Condition",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition",
+  "name" : "AZConditionProfile",
+  "title" : "AZ Condition Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-30",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Condition resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Condition",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Condition",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Condition.extension",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Condition.extension:duration",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-duration" ]
+      } ],
+      "sliceName" : "duration",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:seriousness",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-seriousness" ]
+      } ],
+      "binding" : {
+        "valueSet" : "https://healthsamurai.github.io/ig-ae/ValueSet/condition-seriousness",
+        "strength" : "extensible",
+        "description" : "The value should be from the valueset detailed-ethnicity"
+      },
+      "sliceName" : "seriousness",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingCondition",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingCondition" ]
+      } ],
+      "binding" : {
+        "valueSet" : "https://healthsamurai.github.io/ig-ae/ValueSet/resulting-condition",
+        "strength" : "extensible",
+        "description" : "The value should be from the valueset detailed-ethnicity"
+      },
+      "sliceName" : "resultingCondition",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:outcome",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-outcome" ]
+      } ],
+      "binding" : {
+        "valueSet" : "https://healthsamurai.github.io/ig-ae/ValueSet/condition-outcome",
+        "strength" : "extensible",
+        "description" : "The value should be from the valueset detailed-ethnicity"
+      },
+      "sliceName" : "outcome",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionDeath",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionDeath" ]
+      } ],
+      "sliceName" : "resultingConditionDeath",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionLifeThreat",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionLifeThreat" ]
+      } ],
+      "sliceName" : "resultingConditionLifeThreat",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionBirthDefect",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionBirthDefect" ]
+      } ],
+      "sliceName" : "resultingConditionBirthDefect",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionHospitalization",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionHospitalization" ]
+      } ],
+      "sliceName" : "resultingConditionHospitalization",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionDisability",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionDisability" ]
+      } ],
+      "sliceName" : "resultingConditionDisability",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionImportantMedicalEvent",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionImportantMedicalEvent" ]
+      } ],
+      "sliceName" : "resultingConditionImportantMedicalEvent",
+      "isModifier" : false
+    }, {
+      "id" : "Condition.extension:resultingConditionRequiredIntervention",
+      "path" : "Condition.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Condition-resultingConditionRequiredIntervention" ]
+      } ],
+      "sliceName" : "resultingConditionRequiredIntervention",
+      "isModifier" : false
+    } ]
+  }
+}

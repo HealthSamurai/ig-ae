@@ -1,0 +1,33 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "resulting-condition",
+  "url" : "https://healthsamurai.github.io/ig-ae/ValueSet/resulting-condition",
+  "name" : "ResultingCondition",
+  "title" : "resulting condition",
+  "status" : "active",
+  "date" : "2021-03-09T23:45:30Z",
+  "compose" : {
+    "include" : [ {
+      "system" : "urn:CodeSystem:resulting-condition",
+      "concept" : [ {
+        "code" : "death",
+        "display" : "Death"
+      }, {
+        "code" : "life-threat",
+        "display" : "Life Threat"
+      }, {
+        "code" : "birth-defect",
+        "display" : "Birth Defect"
+      }, {
+        "code" : "hospitalization",
+        "display" : "Hospitalization"
+      }, {
+        "code" : "disability",
+        "display" : "Disability"
+      }, {
+        "code" : "IMA",
+        "display" : "Important Medical Event"
+      } ]
+    } ]
+  }
+}

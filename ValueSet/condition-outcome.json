@@ -1,0 +1,36 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "condition-outcome",
+  "url" : "https://healthsamurai.github.io/ig-ae/ValueSet/condition-outcome",
+  "name" : "ConditionOutcome",
+  "title" : "condition outcome",
+  "status" : "active",
+  "date" : "2021-03-09T23:45:30Z",
+  "compose" : {
+    "include" : [ {
+      "system" : "urn:CodeSystem:condition-outcome",
+      "concept" : [ {
+        "code" : "resolved",
+        "display" : "Resolved"
+      }, {
+        "code" : "recovering",
+        "display" : "Recovering"
+      }, {
+        "code" : "ongoing",
+        "display" : "Ongoing"
+      }, {
+        "code" : "resolvedWithSequelae",
+        "display" : "Resolved with Sequelae"
+      }, {
+        "code" : "fatal",
+        "display" : "Fatal"
+      }, {
+        "code" : "unknown",
+        "display" : "Unknown"
+      }, {
+        "code" : "recovered",
+        "display" : "Recovered"
+      } ]
+    } ]
+  }
+}

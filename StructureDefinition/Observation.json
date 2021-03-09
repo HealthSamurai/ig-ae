@@ -1,0 +1,63 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Observation",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Observation",
+  "name" : "AZObservationProfile",
+  "title" : "AZ Observation Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-30",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Observation resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Observation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Observation.extension",
+      "path" : "Observation.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Observation.extension:pregnancyFlag",
+      "path" : "Observation.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Observation-pregnancyFlag" ]
+      } ],
+      "sliceName" : "pregnancyFlag",
+      "isModifier" : false
+    }, {
+      "id" : "Observation.extension:pregnancyDueDate",
+      "path" : "Observation.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Observation-pregnancyDueDate" ]
+      } ],
+      "sliceName" : "pregnancyDueDate",
+      "isModifier" : false
+    }, {
+      "id" : "Observation.extension:previousPregnanciesDetails",
+      "path" : "Observation.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Observation-previousPregnanciesDetails" ]
+      } ],
+      "sliceName" : "previousPregnanciesDetails",
+      "isModifier" : false
+    } ]
+  }
+}

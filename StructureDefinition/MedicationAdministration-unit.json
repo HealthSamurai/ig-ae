@@ -1,0 +1,51 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "MedicationAdministration-unit",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-unit",
+  "name" : "unit",
+  "title" : "AZ MedicationAdministration Dosage Unit Extension",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-12-18",
+  "publisher" : "AstraZeneca",
+  "description" : "MedicationAdministration Dosage Unit",
+  "fhirVersion" : "4.0.0",
+  "kind" : "complex-type",
+  "abstract" : false,
+  "context" : [ {
+    "type" : "element",
+    "expression" : "dosage"
+  } ],
+  "type" : "Extension",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Extension",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Extension",
+      "path" : "Extension",
+      "mustSupport" : true
+    }, {
+      "id" : "Extension.extension",
+      "path" : "Extension.extension",
+      "mustSupport" : true,
+      "min" : 0,
+      "max" : "0"
+    }, {
+      "id" : "Extension.url",
+      "path" : "Extension.url",
+      "mustSupport" : true,
+      "min" : 1,
+      "max" : "1",
+      "fixedUri" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-unit"
+    }, {
+      "id" : "Extension.value[x]",
+      "path" : "Extension.value[x]",
+      "mustSupport" : true,
+      "min" : 1,
+      "max" : "1",
+      "type" : [ {
+        "code" : "CodeableConcept"
+      } ]
+    } ]
+  }
+}

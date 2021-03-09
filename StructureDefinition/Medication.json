@@ -1,0 +1,83 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Medication",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication",
+  "name" : "AZMedicationProfile",
+  "title" : "AZ Medication Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-01-13",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Medication resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Medication",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Medication",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Medication.extension",
+      "path" : "Medication.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Medication.extension:marketProductType",
+      "path" : "Medication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-marketProductType" ]
+      } ],
+      "sliceName" : "marketProductType",
+      "isModifier" : false
+    }, {
+      "id" : "Medication.extension:strengthUnit",
+      "path" : "Medication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-strengthUnit" ]
+      } ],
+      "sliceName" : "strengthUnit",
+      "isModifier" : false
+    }, {
+      "id" : "Medication.extension:packType",
+      "path" : "Medication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-packType" ]
+      } ],
+      "sliceName" : "packType",
+      "isModifier" : false
+    }, {
+      "id" : "Medication.extension:sampleAvailableForReturn",
+      "path" : "Medication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-sampleAvailableForReturn" ]
+      } ],
+      "sliceName" : "sampleAvailableForReturn",
+      "isModifier" : false
+    }, {
+      "id" : "Medication.extension:quantityAvailableForReturn",
+      "path" : "Medication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Medication-quantityAvailableForReturn" ]
+      } ],
+      "sliceName" : "quantityAvailableForReturn",
+      "isModifier" : false
+    } ]
+  }
+}

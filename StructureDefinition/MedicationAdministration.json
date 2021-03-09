@@ -1,0 +1,109 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "MedicationAdministration",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration",
+  "name" : "AZMedicationAdministrationProfile",
+  "title" : "AZ MedicationAdministration Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-30",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the MedicationAdministration resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationAdministration",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationAdministration",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "MedicationAdministration.extension",
+      "path" : "MedicationAdministration.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "MedicationAdministration.extension:actionTaken",
+      "path" : "MedicationAdministration.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-actionTaken" ]
+      } ],
+      "sliceName" : "actionTaken",
+      "isModifier" : false
+    }, {
+      "id" : "MedicationAdministration.extension:operatorDevice",
+      "path" : "MedicationAdministration.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-operatorDevice" ]
+      } ],
+      "sliceName" : "operatorDevice",
+      "isModifier" : false
+    }, {
+      "id" : "MedicationAdministration.extension:operatorDeviceOther",
+      "path" : "MedicationAdministration.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-operatorDeviceOther" ]
+      } ],
+      "sliceName" : "operatorDeviceOther",
+      "isModifier" : false
+    }, {
+      "id" : "MedicationAdministration.extension:productType",
+      "path" : "MedicationAdministration.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-productType" ]
+      } ],
+      "sliceName" : "productType",
+      "isModifier" : false
+    }, {
+      "id" : "MedicationAdministration.dosage",
+      "path" : "MedicationAdministration.dosage",
+      "mustSupport" : true
+    }, {
+      "id" : "MedicationAdministration.dosage.extension",
+      "path" : "MedicationAdministration.dosage.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "MedicationAdministration.dosage.extension:frequency",
+      "path" : "MedicationAdministration.dosage.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-frequency" ]
+      } ],
+      "sliceName" : "frequency",
+      "isModifier" : false
+    }, {
+      "id" : "MedicationAdministration.dosage.extension:unit",
+      "path" : "MedicationAdministration.dosage.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/MedicationAdministration-unit" ]
+      } ],
+      "sliceName" : "unit",
+      "isModifier" : false
+    } ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Communication",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication",
+  "name" : "AZCommunicationProfile",
+  "title" : "AZ Communication Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-30",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Communication resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Communication",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Communication",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Communication.extension",
+      "path" : "Communication.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Communication.extension:location",
+      "path" : "Communication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-location" ]
+      } ],
+      "sliceName" : "location",
+      "isModifier" : false
+    }, {
+      "id" : "Communication.extension:reporterType",
+      "path" : "Communication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-reporterType" ]
+      } ],
+      "sliceName" : "reporterType",
+      "isModifier" : false
+    }, {
+      "id" : "Communication.extension:employeeVendor",
+      "path" : "Communication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-employeeVendor" ]
+      } ],
+      "sliceName" : "employeeVendor",
+      "isModifier" : false
+    }, {
+      "id" : "Communication.extension:AZEmployeeReporter",
+      "path" : "Communication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-AZEmployeeReporter" ]
+      } ],
+      "sliceName" : "AZEmployeeReporter",
+      "isModifier" : false
+    }, {
+      "id" : "Communication.extension:congressAttended",
+      "path" : "Communication.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Communication-congressAttended" ]
+      } ],
+      "sliceName" : "congressAttended",
+      "isModifier" : false
+    } ]
+  }
+}

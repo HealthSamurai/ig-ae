@@ -1,0 +1,20 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "address-region",
+  "url" : "https://healthsamurai.github.io/ig-ae/CodeSystem/address-region",
+  "version" : "0.1.0",
+  "name" : "AddressRegion",
+  "title" : "Address Region",
+  "status" : "active",
+  "date" : "2021-01-19T13:20:31Z",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines Address Region",
+  "content" : "complete",
+  "concept" : [ {
+    "code" : 1,
+    "display" : "Middlesex"
+  }, {
+    "code" : "CHE",
+    "display" : "Cheshire"
+  } ]
+}

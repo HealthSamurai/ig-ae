@@ -1,0 +1,59 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "RelatedPerson",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/RelatedPerson",
+  "name" : "AZRelatedPersonProfile",
+  "title" : "AZ RelatedPerson Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-09-30",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the RelatedPerson resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "RelatedPerson",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "RelatedPerson.extension",
+      "path" : "RelatedPerson.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "RelatedPerson.extension:consentToContactReporter",
+      "path" : "RelatedPerson.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/RelatedPerson-consentToContactReporter" ]
+      } ],
+      "sliceName" : "consentToContactReporter",
+      "isModifier" : false
+    }, {
+      "id" : "RelatedPerson.name",
+      "path" : "RelatedPerson.name",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "HumanName",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/HumanName" ]
+      } ]
+    }, {
+      "id" : "RelatedPerson.address",
+      "path" : "RelatedPerson.address",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Address",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Address" ]
+      } ]
+    } ]
+  }
+}

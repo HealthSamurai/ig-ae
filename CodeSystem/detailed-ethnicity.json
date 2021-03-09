@@ -1,0 +1,26 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "detailed-ethnicity",
+  "url" : "https://healthsamurai.github.io/ig-ae/CodeSystem/detailed-ethnicity",
+  "version" : "0.1.0",
+  "name" : "DetailedEthnicity",
+  "title" : "Detailed Ethnicity",
+  "status" : "active",
+  "date" : "2021-01-19T13:20:31Z",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines Detailed Ethnicity",
+  "content" : "complete",
+  "concept" : [ {
+    "code" : "white",
+    "display" : "White"
+  }, {
+    "code" : "african",
+    "display" : "African"
+  }, {
+    "code" : "caribbean",
+    "display" : "Caribbean"
+  }, {
+    "code" : "N/A",
+    "display" : "Not prepared to say"
+  } ]
+}

@@ -1,0 +1,93 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "QuestionnaireResponse",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse",
+  "name" : "AZQuestionnaireResponseProfile",
+  "title" : "AZ QuestionnaireResponse Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-01-19",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the QuestionnaireResponse resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "QuestionnaireResponse",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "QuestionnaireResponse.extension",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "QuestionnaireResponse.extension:programme",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-programme" ]
+      } ],
+      "sliceName" : "programme",
+      "isModifier" : false
+    }, {
+      "id" : "QuestionnaireResponse.extension:source",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-source" ]
+      } ],
+      "sliceName" : "source",
+      "isModifier" : false
+    }, {
+      "id" : "QuestionnaireResponse.extension:reporterType",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-reporterType" ]
+      } ],
+      "sliceName" : "reporterType",
+      "isModifier" : false
+    }, {
+      "id" : "QuestionnaireResponse.extension:language",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-language" ]
+      } ],
+      "sliceName" : "language",
+      "isModifier" : false
+    }, {
+      "id" : "QuestionnaireResponse.extension:consent",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-consent" ]
+      } ],
+      "sliceName" : "consent",
+      "isModifier" : false
+    }, {
+      "id" : "QuestionnaireResponse.extension:attachment",
+      "path" : "QuestionnaireResponse.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/QuestionnaireResponse-attachment" ]
+      } ],
+      "sliceName" : "attachment",
+      "isModifier" : false
+    } ]
+  }
+}

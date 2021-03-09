@@ -1,0 +1,53 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Consent",
+  "url" : "https://healthsamurai.github.io/ig-ae/StructureDefinition/Consent",
+  "name" : "AZConsentProfile",
+  "title" : "AZ Consent Profile",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2021-01-19",
+  "publisher" : "AstraZeneca",
+  "description" : "Defines AZ constraints and extensions on the Consent resource",
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Consent",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Consent",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [ {
+      "id" : "Consent.extension",
+      "path" : "Consent.extension",
+      "mustSupport" : true,
+      "slicing" : {
+        "discriminator" : [ {
+          "type" : "value",
+          "path" : "url"
+        } ],
+        "ordered" : false,
+        "rules" : "open"
+      }
+    }, {
+      "id" : "Consent.extension:text",
+      "path" : "Consent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Consent-text" ]
+      } ],
+      "sliceName" : "text",
+      "isModifier" : false
+    }, {
+      "id" : "Consent.extension:name",
+      "path" : "Consent.extension",
+      "mustSupport" : true,
+      "type" : [ {
+        "code" : "Extension",
+        "profile" : [ "https://healthsamurai.github.io/ig-ae/StructureDefinition/Consent-name" ]
+      } ],
+      "sliceName" : "name",
+      "isModifier" : false
+    } ]
+  }
+}
